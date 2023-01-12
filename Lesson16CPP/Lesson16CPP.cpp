@@ -95,14 +95,35 @@ public:
                 seconddate.dayCountPassInYear() + dayCountPassInYear();
         }
     }
+    void operator+(int days)
+    {
+        _day += days;
+        while (_day > dayCountInMonth(_month))
+        {
+            _day -= dayCountInMonth(_month);
+            _month++;
+            if (_month == 13)
+            {
+                _month = 1;
+                _year++;
+            }
+        }
+    }
+    friend std::ostream& operator<<(std::ostream& out, MyDate date)
+    {
+        return out << date._year << "." << date._month << "." << date._day << "\n";
+    }
 
 };
 int main()
 {
-    MyDate date1(2023, 31, -12);
+    MyDate date1(2023, 5, 12);
     MyDate date2(2023, -1, 36);
     int passdays = abs(date1 - date2);
-    std::cout << passdays;
+    std::cout << date1;
+    date1 + 25200;
+    std::cout << date1;
+    //std::cout << passdays;
 
     return 0;
 }
