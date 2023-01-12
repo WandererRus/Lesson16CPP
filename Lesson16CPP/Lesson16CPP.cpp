@@ -3,7 +3,8 @@
 
 #include <iostream>
 #include <cmath>
-class MyDate {
+//first task
+/*class MyDate {
 private:
     int _year;
     int _month;
@@ -114,17 +115,41 @@ public:
         return out << date._year << "." << date._month << "." << date._day << "\n";
     }
 
-};
+};*/
+//second task
+std::string operator*(std::string first, std::string second)
+{
+    std::string result;
+    for (int i = 0; i < first.length(); i++)
+    {
+        for (int j = 0; j < second.length(); j++)
+        {
+            if (first[i] == second[j])
+            {
+                result += first[i];
+            }
+        }
+    }
+    return result;
+}
+
 int main()
 {
-    MyDate date1(2023, 5, 12);
+    //first task
+   /* MyDate date1(2023, 5, 12);
     MyDate date2(2023, -1, 36);
     int passdays = abs(date1 - date2);
     std::cout << date1;
     date1 + 25200;
     std::cout << date1;
-    //std::cout << passdays;
+    //std::cout << passdays;*/
 
+    //second task
+    std::string res;
+    std::string f = "1234";
+    std::string s = "4567";
+    res = f * s;
+    std::cout << res;
     return 0;
 }
 
